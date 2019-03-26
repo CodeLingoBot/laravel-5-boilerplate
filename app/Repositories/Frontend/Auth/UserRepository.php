@@ -147,7 +147,7 @@ class UserRepository extends BaseRepository
         // Upload profile image if necessary
         if ($image) {
             $user->avatar_location = $image->store('/avatars', 'public');
-        } else {
+        } else{
             // No image being passed
             if ($input['avatar_type'] == 'storage') {
                 // If there is no existing image
@@ -163,7 +163,6 @@ class UserRepository extends BaseRepository
                 $user->avatar_location = null;
             }
         }
-
         if ($user->canChangeEmail()) {
             //Address is not current address so they need to reconfirm
             if ($user->email != $input['email']) {
